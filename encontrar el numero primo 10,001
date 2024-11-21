@@ -1,0 +1,77 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM/oIJERTIX8YretydCv2ip",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Aaron-BG-MEX/Aaron-BG-MEX/blob/main/encontrar%20el%20numero%20primo%2010%2C001\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "45ESgWowMwES",
+        "outputId": "88f344c9-f40b-41bb-e070-5d4f75ed8ecc"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The 10,001st prime number is: 104743\n"
+          ]
+        }
+      ],
+      "source": [
+        "def is_prime(n):\n",
+        "  \"\"\"Returns True if n is a prime number, False otherwise.\"\"\"\n",
+        "  if n <= 1:\n",
+        "    return False\n",
+        "  for i in range(2, int(n**0.5) + 1):\n",
+        "    if n % i == 0:\n",
+        "      return False\n",
+        "  return True\n",
+        "\n",
+        "\n",
+        "def find_nth_prime(n):\n",
+        "  \"\"\"Returns the nth prime number.\"\"\"\n",
+        "  count = 0\n",
+        "  num = 2\n",
+        "  while count < n:\n",
+        "    if is_prime(num):\n",
+        "      count += 1\n",
+        "    if count == n:\n",
+        "      return num\n",
+        "    num += 1\n",
+        "\n",
+        "\n",
+        "# Find the 10,001st prime number\n",
+        "nth_prime = find_nth_prime(10001)\n",
+        "print(f\"The 10,001st prime number is: {nth_prime}\")\n"
+      ]
+    }
+  ]
+}
